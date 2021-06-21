@@ -10,10 +10,13 @@ python-decouple = "*"
 django-extensions = "*"
 psycopg2-binary = "*"
 dj-database-url = "*"
+requests = "*"
 
 [dev-packages]
 pytest = "*"
 flake8 = "*"
+pytest-django = "*"
+pytest-mock = "*"
 
 [requires]
 python_version = "3.9"

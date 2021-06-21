@@ -12,3 +12,5 @@ def count_daily_activites_for_a_month(month):
     return result
 
 
+def count_users_per_day(day):
+    return UserActivity.objects.filter(date=day, used=True).count()

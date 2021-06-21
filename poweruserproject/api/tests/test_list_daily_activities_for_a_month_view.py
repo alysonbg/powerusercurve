@@ -2,8 +2,8 @@ import pytest
 
 
 @pytest.fixture
-def response_daily_activities_from_month(db, client, user_activities):
-    return client.get('/api/users/activities/month/?month=5')
+def response_daily_activities_from_month(db, auth_client, user_activities):
+    return auth_client.get('/api/users/activities/month/?month=5')
 
 
 def test_status_code(response_daily_activities_from_month):

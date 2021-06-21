@@ -2,8 +2,8 @@ import pytest
 
 
 @pytest.fixture
-def response_users_count(db, client, user_activities):
-    return client.get('/api/users/activities/?day=2021-05-02')
+def response_users_count(db, auth_client, user_activities):
+    return auth_client.get('/api/users/activities/?day=2021-05-02')
 
 
 def test_status_code(response_users_count):

@@ -3,6 +3,9 @@ import datetime
 import pytest
 
 from poweruserproject.api.models import UserActivity
+from rest_framework.test import APIClient
+from rest_framework.authtoken.models import Token
+from django.contrib.auth.models import User
 
 
 @pytest.fixture
@@ -40,3 +43,13 @@ def user_activities(db):
                      used=True)
     ]
     return UserActivity.objects.bulk_create(activites)
+
+
+@pytest.fixture
+def auth_client(db):
+    user = User.objects.create_superuser('admin', 'admin@admin.com', 'admin123')
+    token = Token.objects.create(user=user)
+    client = APIClient()
+    client.credentials(HTTP_AUTHORIZATION='Token ' + token.key)
+
+    return client

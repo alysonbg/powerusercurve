@@ -2,6 +2,7 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
+from poweruserproject.api.business_logic import count_daily_activites_for_a_month
 from poweruserproject.api.models import UserActivity
 from poweruserproject.api.serializers import UserActivitySerializer
 
@@ -22,3 +23,11 @@ def list_amount_of_users_for_a_day(request):
     day = request.query_params.get('day')
     users_count = UserActivity.objects.filter(date=day, used=True).count()
     return Response({'quantity': users_count}, status=status.HTTP_200_OK)
+
+
+@api_view(['GET'])
+def list_daily_activities_for_a_month(request):
+    month = request.query_params.get('month')
+    activities = count_daily_activites_for_a_month(month)
+
+    return Response(activities, status=status.HTTP_200_OK)

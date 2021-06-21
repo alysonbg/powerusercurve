@@ -1,1 +1,2 @@
 # powerusercurve
+[![Python application](https://github.com/alysonbg/powerusercurve/actions/workflows/django_project.yml/badge.svg)](https://github.com/alysonbg/powerusercurve/actions/workflows/django_project.yml)

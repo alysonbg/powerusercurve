@@ -1,0 +1,18 @@
+version: "3.3"
+
+services:
+    database:
+        container_name: struct_database
+        image: postgres
+        restart: always
+        volumes:
+            - db-data:/var/lib/postgresql/data
+        environment:
+            - LC_ALL=C.UTF-8
+            - POSTGRES_PASSWORD=postgres
+            - POSTGRES_USER=postgres
+            - POSTGRES_DB=testdb
+        ports:
+            - 5438:5432
+volumes:
+  db-data:

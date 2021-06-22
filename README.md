@@ -18,7 +18,7 @@ Desafio técnico do cíngulo
 git clone git@github.com:alysonbg/powerusercurve.git
 cd powerusercurve
 pip install pipenv
-pipenv sync
+pipenv sync -d
 docker-compose up -d
 cp contrib/env-sample .env
 pipenv run python manage.py migrate

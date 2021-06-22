@@ -21,10 +21,10 @@ pip install pipenv
 pipenv sync
 docker-compose up -d
 cp contrib/env-sample .env
-python manage.py migrate
-pytest
-python manage.py importdata
-python manage.py runserver
+pipenv run python manage.py migrate
+pipenv run pytest
+pipenv run python manage.py importdata
+pipenv run python manage.py runserver
 ```
 
 ## Como acessar os endpoints:
@@ -33,7 +33,7 @@ python manage.py runserver
 3. Salve o token.
 
 ```console
-python manage.py createsuperuser admin
+pipenv python manage.py createsuperuser admin
 curl -d 'username=usuario&password=senha' http://127.0.0.1:8000/api-token-auth/
 ```
 
